@@ -1,0 +1,11 @@
+Logging Handler for loggly Hacked togther in two seconds
+
+logger = logging.getLogger('Logger')
+http_handler = loggyHandler('https://logs.loggly.com/inputs/url')
+formatter = logging.Formatter('%(asctime)s loggly:severity=%(levelname)s,%(message)s')
+http_handler.setFormatter(formatter)
+logger.addHandler(http_handler)
+logger.setLevel(logging.DEBUG)
+logger.info('Info')
+logger.critical("Critical")
+
